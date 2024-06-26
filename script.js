@@ -2,12 +2,14 @@ function criaCalculadora(){
     return {
         //Atributos
         display: document.querySelector('.display'),
-
-
-
-
+        btnClear: document.querySelector('.btn-clear'),
 
         //Métodos
+
+        clearDisplay(){
+            this.display.value = "";
+        },
+
         inicia(){
             this.cliqueBotoes();
         },
@@ -18,6 +20,10 @@ function criaCalculadora(){
 
                 if(el.classList.contains('btn-num')) {
                     this.btnParaDisplay(el.innerText);
+                }
+
+                if(el.classList.contains('btn-clear')){
+                    this.clearDisplay();
                 }
             });
         },
